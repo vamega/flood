@@ -37,6 +37,11 @@ const {argv: argvObj} = yargs(process.argv.slice(2))
     describe: 'The port that Flood should listen for web connections on',
     type: 'number',
   })
+  .option('socket', {
+    describe: 'A unix socket or named pipe to listen on.',
+    type: 'string',
+    conflicts: ['host', 'port'],
+  })
   .option('secret', {
     alias: 's',
     hidden: true,
